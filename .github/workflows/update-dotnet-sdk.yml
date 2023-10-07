@@ -159,6 +159,11 @@ jobs:
     steps:
 
     # Ensure that one of the required type of secrets has been specified
+    - name: Harden Runner
+      uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423 # v2.6.0
+      with:
+        egress-policy: audit
+
     - name: Validate secrets
       id: validate-secrets
       uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
